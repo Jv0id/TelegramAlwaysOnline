@@ -22,8 +22,8 @@ Don't let others peak on your daily routine with recent online! So keep yourself
 # 如何使用？ How to use
 
 - 首先，你需要一个 `Client Token`(这个可以在 https://my.telegram.org 申请)
-    - 教程：https://github.com/NeverBehave/AlwaysOnline-/blob/master/%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7Client%20Token.md
-- `git clone https://github.com/NeverBehave/AlwaysOnline-` 或者下载压缩包解压
+    - 教程：https://github.com/Jv0id/TelegramAlwaysOnline/blob/master/%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7Client%20Token.md
+- `git clone https://github.com/Jv0id/TelegramAlwaysOnline` 或者下载压缩包解压
 - 将 `api_id` 和 `api_hash` 填入 `data.py` 适当的位置
     - Fill in your id and hash @ `data.py`
 - `python3 main.py`
