@@ -16,27 +16,17 @@ Don't let others peak on your daily routine with recent online! So keep yourself
 `PYTHON3`  
 `一台可以连接到Telegram的服务器`  
 
-需要包：`Telethon`  
-使用这个指令直接安装到全局 | Install package globally with ：`pip3 install telethon==0.19.1.6`  
-
 # 如何使用？ How to use
 
-- 首先，你需要一个 `Client Token`(这个可以在 https://my.telegram.org 申请)
-    - 教程：https://github.com/Jv0id/TelegramAlwaysOnline/blob/master/%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7Client%20Token.md
-- `git clone https://github.com/Jv0id/TelegramAlwaysOnline` 或者下载压缩包解压
-- 将 `api_id` 和 `api_hash` 填入 `data.py` 适当的位置
-    - Fill in your id and hash @ `data.py`
-- `python3 main.py`
-- 按照指引完成登录
-    - Follow the instruction and you are good to go !
+### 安装`docker`
 
-# 提示 Tips
+### 首先，你需要一个 `Client Token`(这个可以在 https://my.telegram.org 申请)
 
-- 不要在**不安全**的地方部署这个脚本，妥善地保管好目录下的`Session`文件，否则相当于给予**任何人访问你的账号的权限** 
-    - Take good care of the `session` file under this directory, or your account will be at risk.
-- 这个脚本不会使你的消息变为已读，你不会在日常使用中察觉到脚本的存在
-    - You can still use your account normally. Nothing else will change (Message count, etc.).
-     
+### `docker run -d --name alwaysOnline -e api_id="xxx" -e api_hash="xxx" -e password="xxx" jp0id/telegramAlwaysOnline`
+
+### `docker logs -f alwaysOnline`
+
+### 二次验证的话需要数据手机号 及 telegram验证码。
 
 # 原理 How it works
 
