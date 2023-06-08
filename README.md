@@ -1,4 +1,4 @@
-# 不再更新！！！！
+# 不再更新！！！！已经完全可以使用了，毕竟是个小工具。
 
 Keep your Telegram Always Online.
 让你的 Telegram 永远"在线"
@@ -27,3 +27,6 @@ docker run -it --name alwaysOnline --restart=always -e api_id="xxx" \
 ```
 
 ### 二次验证的话需要输入telegram验证码。
+
+
+## fork from https://github.com/abusetelegram/AlwaysOnline-
