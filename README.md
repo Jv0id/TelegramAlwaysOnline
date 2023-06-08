@@ -1,5 +1,7 @@
 # AlwaysOnline™
 
+# 不再更新！！！！
+
 Keep your Telegram Always Online.
 让你的 Telegram 永远"在线"
 
