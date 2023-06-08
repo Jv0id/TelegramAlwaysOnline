@@ -28,5 +28,6 @@ docker run -it --name alwaysOnline --restart=always -e api_id="xxx" \
 
 ### 二次验证的话需要输入telegram验证码。
 
+### 有人提议可以像验证码那样通过输入形式输入手机和密码，是可以，只是我懒得弄了，毕竟是自己用的，而且是运行在自己的服务器上，还有二次验证，所以安全性有保证。如果有人还是觉得不放心，可以fork本项目进行修改。
 
 #### fork from https://github.com/abusetelegram/AlwaysOnline-
