@@ -13,14 +13,15 @@ logging.basicConfig(level=logging.INFO)
 api_id = os.environ.get("api_id") or ""
 api_hash = os.environ.get("api_hash") or ""
 
-phone = getpass.getpass('Please enter the phone number: ')
-password = getpass.getpass('Please enter the password')
+phone = os.environ.get("phone") or "+"
+password = os.environ.get("password") or ""
 
 if api_id == '' or api_hash == '':
     logging.fatal("You must assign a API before using this script! 在登录前你必须给定ID和HASH")
 
 logging.info("Trying to Login to Telegram... 正在尝试登录...")
 client = TelegramClient('session_file', api_id, api_hash, spawn_read_thread=False)
+client.connect()
 
 
 def start(self=client,
@@ -30,7 +31,7 @@ def start(self=client,
           first_name='New User', last_name=''):
     if code_callback is None:
         def code_callback():
-            return getpass.getpass('Please enter the code you received: ')
+            return input('Please enter the code you received: ')
     elif not callable(code_callback):
         raise ValueError(
             'The code_callback parameter needs to be a callable '
@@ -111,7 +112,6 @@ def start(self=client,
     return self
 
 
-client.connect()
 if client.is_user_authorized() is not True:
     logging.info('You have not login yet, Trying to log you in... 没有活跃的登录Session，尝试登录...')
     logging.info(

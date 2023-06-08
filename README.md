@@ -22,7 +22,10 @@ Don't let others peak on your daily routine with recent online! So keep yourself
 
 ### 首先，你需要一个 `Client Token`(这个可以在 https://my.telegram.org 申请)
 
-### `docker run -it --name alwaysOnline --restart=always -e api_id="xxx" -e api_hash="xxx" jp0id/telegram-always-online`
+```shell
+docker run -it --name alwaysOnline --restart=always -e api_id="xxx" \ 
+-e api_hash="xxx" -e phone="+86111111111111" -e password="password" jp0id/telegram-always-online
+```
 
 ### 二次验证的话需要输入密码，手机号及telegram验证码。
 
