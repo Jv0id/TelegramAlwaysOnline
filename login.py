@@ -12,8 +12,9 @@ logging.basicConfig(level=logging.INFO)
 
 api_id = os.environ.get("api_id") or ""
 api_hash = os.environ.get("api_hash") or ""
-password = os.environ.get("password") or ""
-phone_number = os.environ.get("phone_number") or ""
+
+phone = getpass.getpass('Please enter the phone number: ')
+password = getpass.getpass('Please enter the password')
 
 if api_id == '' or api_hash == '':
     logging.fatal("You must assign a API before using this script! 在登录前你必须给定ID和HASH")
@@ -23,7 +24,7 @@ client = TelegramClient('session_file', api_id, api_hash, spawn_read_thread=Fals
 
 
 def start(self=client,
-          phone=phone_number,
+          phone=phone,
           password=password,
           bot_token=None, force_sms=False, code_callback=None,
           first_name='New User', last_name=''):
@@ -56,7 +57,7 @@ def start(self=client,
 
     # Turn the callable into a valid phone number
     while callable(phone):
-        phone = utils.parse_phone(phone()) or phone
+        phone = utils.parse_phone(phone) or phone
 
     me = None
     attempts = 0
@@ -97,9 +98,8 @@ def start(self=client,
                 "Two-step verification is enabled for this account. "
                 "Please provide the 'password' argument to 'start()'."
             )
-        # TODO If callable given make it retry on invalid
         if callable(password):
-            password = password()
+            password = password
         me = self.sign_in(phone=phone, password=password)
     signed, name = 'Signed in successfully as', utils.get_display_name(me)
     try:
@@ -116,5 +116,4 @@ if client.is_user_authorized() is not True:
     logging.info('You have not login yet, Trying to log you in... 没有活跃的登录Session，尝试登录...')
     logging.info(
         'if you have 2FA password, please enter right now. This Password will not be stored | 如果你有两步认证密码，请现在输入。这个密码不会被保存')
-    if password != '':
-        start(client)
+    start(client)
