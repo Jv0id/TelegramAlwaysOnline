@@ -22,6 +22,7 @@ if client.is_user_authorized() is not True:
     logging.info(
         'if you have 2FA password, please enter right now. This Password will not be stored | 如果你有两步认证密码，请现在输入。这个密码不会被保存')
     if password != '':
+        logging.basicConfig(level=logging.INFO)
         client.start(password=password)
     else:
         client.start()
