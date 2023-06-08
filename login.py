@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import getpass
 import logging
 import os
 import sys
@@ -10,14 +9,15 @@ from telethon.errors import SessionPasswordNeededError, PhoneNumberOccupiedError
 
 logging.basicConfig(level=logging.INFO)
 
-api_id = os.environ.get("api_id") or ""
-api_hash = os.environ.get("api_hash") or ""
+api_id = os.environ.get("api_id") or "123"
+api_hash = os.environ.get("api_hash") or "123"
 
-phone = os.environ.get("phone") or "+"
-password = os.environ.get("password") or ""
+phone = os.environ.get("phone") or "+8613838381438"
+password = os.environ.get("password") or "123"
 
-if api_id == '' or api_hash == '':
-    logging.fatal("You must assign a API before using this script! 在登录前你必须给定ID和HASH")
+if api_id == '123' or api_hash == '123' or password == '123':
+    logging.fatal(
+        "You must assign a API and password before using this script! 在登录前你必须给定ID和HASH和密码! 密码不会被保存！")
 
 logging.info("Trying to Login to Telegram... 正在尝试登录...")
 client = TelegramClient('session_file', api_id, api_hash, spawn_read_thread=False)
@@ -72,7 +72,6 @@ def start(self=client,
             if sign_up:
                 me = self.sign_up(code_callback(), first_name, last_name)
             else:
-                # Raises SessionPasswordNeededError if 2FA enabled
                 me = self.sign_in(phone, code_callback())
             break
         except SessionPasswordNeededError:
@@ -114,6 +113,5 @@ def start(self=client,
 
 if client.is_user_authorized() is not True:
     logging.info('You have not login yet, Trying to log you in... 没有活跃的登录Session，尝试登录...')
-    logging.info(
-        'if you have 2FA password, please enter right now. This Password will not be stored | 如果你有两步认证密码，请现在输入。这个密码不会被保存')
+    logging.info('如果你有两步认证密码，请从官方客户端获取并输入。')
     start(client)
