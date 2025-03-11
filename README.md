@@ -23,7 +23,7 @@ Don't let others peak on your daily routine with recent online! So keep yourself
 
 ```shell
 docker run -it --name alwaysOnline --restart=always -e api_id="xxx" \ 
--e api_hash="xxx" -e phone="+86111111111111" -e password="password" jp0id/telegram-always-online
+-e api_hash="xxx" -e phone="+86111111111111" jp0id/telegram-always-online
 ```
 
 ### 二次验证的话需要输入telegram验证码。
