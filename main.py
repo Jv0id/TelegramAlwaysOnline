@@ -1,16 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import logging
-from login import client
-from telethon.tl.functions.account import UpdateStatusRequest
-import time
+import asyncio
+
+from login import client, main
 
 if __name__ == '__main__':
-    if client.is_user_authorized():
-        logging.info("You are now AlwaysOnline™, Yah!")
-        while True:
-            client(UpdateStatusRequest(offline=False))
-            time.sleep(60)
-            logging.debug("Sleep for 1 min")
-    else:
-        logging.fatal("Login Fails, please retry... 失败，请重试！")
+    # 获取当前事件循环
+    loop = asyncio.get_event_loop()
+    with client:
+        loop.run_until_complete(main())
